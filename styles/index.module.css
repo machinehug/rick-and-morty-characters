@@ -12,6 +12,7 @@
   padding: 10px;
   border-radius: 10px;
   background: rgb(250, 250, 250);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .card:hover {
@@ -22,11 +23,8 @@
 
 .img {
   border: 1px solid rgba(46, 65, 78, 0.158) !important; /* had to add !important because Next Image removes it by default */
-}
-
-.img:hover {
-  border-radius: 20px;
-  border: 1px solid rgba(32, 62, 82, 0.192) !important; /* had to add !important because Next Image removes it by default */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 1rem !important;
 }
 
 .character_title {

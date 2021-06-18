@@ -23,14 +23,18 @@ textarea {
 button {
   align-self: flex-start;
   margin: 0 10px 10px 0;
-  padding: 10px 30px;
-  background: rgb(52, 52, 143);
+  padding: 15px 30px;
+  background: black;
   color: white;
   cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  font-weight: bold;
 }
 
 img {
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 h1 {
@@ -44,15 +48,13 @@ a {
   text-decoration: none;
 }
 
-/*global header*/
+/*header*/
 header {
-  background: black;
-  color: white;
+  border-bottom: 1px solid black;
 }
 
 .logo {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 nav {
@@ -62,8 +64,8 @@ nav {
 
 ul {
   display: flex;
-  justify-content: space-between;
-  max-width: 300px;
+  justify-content: space-evenly;
+  max-width: 400px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -71,14 +73,13 @@ ul {
 
 nav ul li {
   text-decoration: none;
-  border: 1px solid white;
-  padding: 5px 20px;
+  max-width: 130px;
+  padding: 0.5rem;
 }
 
-nav ul li:hover,
 nav ul li:active {
-  background: white;
-  color: black;
+  background: black;
+  color: white;
 }
 
 /*contact and login forms*/
@@ -92,6 +93,15 @@ form {
   max-width: 500px;
   justify-content: center;
   margin: 0 auto;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+form,
+textarea,
+input,
+select {
+  border: 1px solid lightgrey;
+  border-radius: 10px;
 }
 
 form div {
@@ -100,6 +110,7 @@ form div {
 
 fieldset {
   padding: 20px;
+  border: none;
 }
 
 label {
@@ -109,7 +120,7 @@ label {
 textarea,
 input,
 select {
-  padding: 5px 10px;
+  padding: 8px 15px;
   margin: 5px 0;
 }
 
@@ -119,6 +130,10 @@ form button {
   width: 100%;
 }
 
+textarea {
+  resize: none;
+}
+
 form button {
   margin: 0;
   margin-top: 20px;
@@ -126,23 +141,29 @@ form button {
 
 /*FeedbackMessage component*/
 .error,
-.success {
-  font-weight: 600;
+.success,
+.formerror {
+  font-weight: bold;
 }
 
 .error,
-.success {
-  margin-bottom: 10px;
-}
-
-.error {
+.formerror {
   color: red;
 }
 
-.success {
+.success,
+.formerror {
   padding: 10px;
-  background: lightgreen;
-  max-width: fit-content;
-  margin: 0 auto;
-  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.error {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 50px 0;
+  padding: 15px 5px;
+}
+
+img {
+  filter: grayscale();
 }

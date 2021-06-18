@@ -2,8 +2,19 @@
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   padding-top: 40px;
+}
+
+.container div {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 2rem;
+}
+
+.container img {
+  width: 18rem;
+  border-radius: 50%;
+  filter: grayscale();
 }
 
 .info_container {

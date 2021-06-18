@@ -40,23 +40,25 @@ export default function LoginForm() {
 	};
 
 	return (
-				<section>
-					<form onSubmit={handleSubmit(onSubmit)}>
-						{error && <FeedbackMessage type="error" errorMessage={error} />}
-						<div>
-							<label htmlFor="username">Username</label>
-							<input type="text" name="username" placeholder="Your username..." ref={register} />
-							{errors.username && <FeedbackMessage type="error" errorMessage={errors.username.message} />}
-						</div>
-						<div>
-							<label htmlFor="password">Password</label>
-							<input type="password" name="password" placeholder="Your password..." ref={register} />
-							{errors.password && <FeedbackMessage type="error" errorMessage={errors.password.message} />}
-						</div>
-						<div>
-							<button type="submit">{submitting ? "LOGGING IN..." : "LOGIN"}</button>
-						</div>
-					</form>
-				</section>
+		<section>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<fieldset>
+					{error && <FeedbackMessage type="formerror" message="Incorrect username and/or password. Please try again or contact us for help." />}
+					<div>
+						<label htmlFor="username">Username</label>
+						<input type="text" name="username" placeholder="Your username..." ref={register} />
+						{errors.username && <FeedbackMessage type="formerror" message={errors.username.message} />}
+					</div>
+					<div>
+						<label htmlFor="password">Password</label>
+						<input type="password" name="password" placeholder="Your password..." ref={register} />
+						{errors.password && <FeedbackMessage type="formerror" message={errors.password.message} />}
+					</div>
+					<div>
+						<button type="submit">{submitting ? "LOGGING IN..." : "LOGIN"}</button>
+					</div>
+				</fieldset>
+			</form>
+		</section>
 	);
 };

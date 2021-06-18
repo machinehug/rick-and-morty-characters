@@ -6,9 +6,5 @@ export default function Heading({title}) {
 };
 
 Heading.propTypes = {
-    title: PropTypes.string,
-};
-
-Heading.defaultProps = {
-	title: "",
+    title: PropTypes.string.isRequired,
 };

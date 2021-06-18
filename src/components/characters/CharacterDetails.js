@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import PropTypes from "prop-types";
 import Heading from "../../../src/components/typography/Heading";
 import styles from "../../../styles/detail.module.css";
@@ -10,7 +9,6 @@ export default function CharacterDetails({character}) {
 
     return (
         <section key={id} className={styles.container}>
-            <Link href="/"><a><button>BACK</button></a></Link>
             <Image
                 src={image}
                 width={500}

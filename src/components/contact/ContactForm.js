@@ -22,7 +22,7 @@ const schema = yup.object().shape({
 
 export default function ContactForm() {
 
-    const [submitting, setSubmitting] = useState(false);
+	const [submitting, setSubmitting] = useState(false);
 	const [sending, setSending] = useState(false);
 
 	const { register, handleSubmit, errors } = useForm({
@@ -34,46 +34,49 @@ export default function ContactForm() {
 		setSending(true);
 	};
 
-    return (
-            <section>
-				{submitting && <FeedbackMessage type="success" errorMessage="You successfully sent us a message. We'll send you an email within 24 business hours." />}
-				<form onSubmit={handleSubmit(onSubmit)}>
-					<fieldset disabled={sending}>
-						<div>
-							<label htmlFor="firstname">First name</label>
-							<input type="text" name="firstname" placeholder="Your first name..." ref={register} />
-							{errors.firstname && <FeedbackMessage type="error" errorMessage={errors.firstname.message} />}
-						</div>
-						<div>
-							<label htmlFor="lastname">Last name</label>
-							<input type="text" name="lastname" placeholder="Your last name..." ref={register} />
-							{errors.lastname && <FeedbackMessage type="error" errorMessage={errors.lastname.message} />}
-						</div>
-						<div>
-							<label htmlFor="email">Email</label>
-							<input type="email" name="email" placeholder="Your email..." ref={register} />
-							{errors.email && <FeedbackMessage type="error" errorMessage={errors.email.message} />}
-						</div>
-						<div>
-							<label htmlFor="subject">Subject</label>
-							<select name="subject" ref={register}>
-								<option />
-								<option name="subject" ref={register}>Account issues</option>
-								<option name="subject" ref={register}>Feedback</option>
-							</select>
-							{errors.subject && <FeedbackMessage type="error" errorMessage={errors.subject.message} />}
-						</div>
-						<div>
-							<label htmlFor="message">Message</label>
-							<textarea type="text" name="message" rows="5" placeholder="Your message..." ref={register} />
-							<div>Must be between {MIN_MESSAGE_LENGTH} to {MAX_MESSAGE_LENGTH} characters.</div>
-							{errors.message && <FeedbackMessage type="error" errorMessage={errors.message.message} />}
-						</div>
-						<div>
-							<button type="submit">SEND MESSAGE</button>
-						</div>
-					</fieldset>
-				</form>
-			</section>
-    );
+	return (
+		<section>
+			<form onSubmit={handleSubmit(onSubmit)}>
+
+				<fieldset disabled={sending}>
+					<div>
+						<label htmlFor="firstname">First name</label>
+						<input type="text" name="firstname" placeholder="Your first name..." ref={register} />
+						{errors.firstname && <FeedbackMessage type="formerror" message={errors.firstname.message} />}
+					</div>
+					<div>
+						<label htmlFor="lastname">Last name</label>
+						<input type="text" name="lastname" placeholder="Your last name..." ref={register} />
+						{errors.lastname && <FeedbackMessage type="formerror" message={errors.lastname.message} />}
+					</div>
+					<div>
+						<label htmlFor="email">Email</label>
+						<input type="email" name="email" placeholder="Your email..." ref={register} />
+						{errors.email && <FeedbackMessage type="formerror" message={errors.email.message} />}
+					</div>
+					<div>
+						<label htmlFor="subject">Pick a subject</label>
+						<select name="subject" ref={register}>
+							<option />
+							<option name="subject" ref={register}>Website feedback</option>
+							<option name="subject" ref={register}>Account issues</option>
+							<option name="subject" ref={register}>Work application</option>
+							<option name="subject" ref={register}>Other</option>
+						</select>
+						{errors.subject && <FeedbackMessage type="formerror" message={errors.subject.message} />}
+					</div>
+					<div>
+						<label htmlFor="message">Message</label>
+						<textarea type="text" name="message" rows="5" placeholder="Your message..." ref={register} />
+						<div>Must be between {MIN_MESSAGE_LENGTH} to {MAX_MESSAGE_LENGTH} characters.</div>
+						{errors.message && <FeedbackMessage type="formerror" message={errors.message.message} />}
+					</div>
+					<div>
+						<button type="submit">SEND MESSAGE</button>
+						{submitting && <FeedbackMessage type="success" message="You successfully sent us a message. We'll send you an email within 24 business hours." />}
+					</div>
+				</fieldset>
+			</form>
+		</section>
+	);
 };
